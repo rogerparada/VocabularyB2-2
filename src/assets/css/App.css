@@ -1,0 +1,199 @@
+#root {
+	background-color: black;
+}
+.App {
+	text-align: center;
+	background-color: white;
+}
+
+.App-logo {
+	height: 40vmin;
+	pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
+}
+
+.App-content {
+	background-color: white;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+}
+
+.container {
+	width: 90%;
+	margin: auto;
+	text-align: left;
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+.Italic {
+	font-style: italic;
+}
+
+#id {
+	color: white;
+}
+
+.title {
+	text-transform: capitalize;
+	margin-right: 1rem;
+	font-weight: bolder;
+	font-size: 5rem;
+}
+
+.phonetic {
+	font-weight: 200;
+	margin-right: 1rem;
+}
+
+.spoiler {
+	margin-left: 1rem;
+	font-size: 1.1rem;
+	cursor: pointer;
+	border: #b2b2b2 solid 1px;
+	border-radius: 5px;
+	margin-top: 1rem;
+}
+
+.spoiler summary {
+	font-style: italic;
+	font-weight: bolder;
+	border-bottom: #b2b2b2 solid 1px;
+	padding-left: 1rem;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.spoiler ul li {
+	font-size: 1.1rem;
+	list-style-type: circle;
+	text-transform: capitalize;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	font-weight: 300;
+}
+
+.list {
+	background-color: white;
+}
+
+#word {
+	border: 1px solid black;
+	padding: 2rem;
+	border-radius: 0.5rem;
+	background-color: white;
+}
+
+#word::before {
+	content: "";
+	width: 2rem;
+	height: 100vh;
+	background-color: red;
+}
+
+.Speech {
+	margin-top: 1rem;
+	margin-left: 1rem;
+	font-size: 1.3rem;
+}
+
+.Speech span {
+	font-weight: 200;
+	font-style: italic;
+}
+
+ul li {
+	font-size: 1.2rem;
+	font-weight: 200;
+	text-align: justify;
+}
+ul li span {
+	margin-left: 0.5rem;
+	margin-top: 0.5rem;
+	font-style: italic;
+	font-size: 1.1rem;
+}
+
+.no-link {
+	margin-left: 0rem;
+	margin-top: 0rem;
+	cursor: text;
+	font-style: normal !important;
+	font-size: 1rem;
+}
+
+@media (max-width: 500px) {
+	.container {
+		width: 100%;
+	}
+	.title {
+		font-size: 3.5rem;
+		line-height: 7rem;
+	}
+
+	.Speech {
+		--margin: 0rem;
+		--font: 1rem;
+		margin-top: var(--margin);
+		margin-left: var(--margin);
+		font-size: var(--font);
+	}
+
+	.Speech span {
+		font-weight: 200;
+		font-style: italic;
+	}
+
+	ul li {
+		font-size: var(--font);
+		font-weight: 200;
+		text-align: justify;
+	}
+	ul li span {
+		margin-left: var(--margin);
+		margin-top: var(--margin);
+		font-style: italic;
+		font-size: var(--font);
+	}
+
+	.spoiler {
+		margin-left: var(--margin);
+		font-size: var(--font);
+		cursor: pointer;
+	}
+
+	.spoiler summary {
+		font-style: italic;
+		font-weight: bolder;
+	}
+
+	.spoiler ul li {
+		font-size: var(--font);
+		list-style-type: circle;
+		text-transform: capitalize;
+	}
+	#word {
+		border-radius: 0;
+	}
+
+	.App-content {
+		background-color: white;
+		min-height: 10vh;
+		display: block;
+		flex-direction: none;
+		justify-content: none;
+	}
+}
