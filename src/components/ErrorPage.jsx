@@ -1,14 +1,21 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function ErrorPage() {
 	const params = useParams().word;
 	console.log(params);
 	return (
-		<div id="word">
+		<div className="error">
 			<span className="title">{params}</span>
 			<br />
 			<span className="phonetic">Not found. Please use other word</span>
+			<p>
+				<Link to="/">
+					Go to home <FontAwesomeIcon icon={faHome} />
+				</Link>
+			</p>
 		</div>
 	);
 }
