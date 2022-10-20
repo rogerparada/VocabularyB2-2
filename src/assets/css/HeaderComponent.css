@@ -1,0 +1,15 @@
+nav {
+	height: 30px;
+	padding-top: 15px;
+}
+
+nav ul li {
+	list-style: none;
+}
+
+@media (max-width: 500px) {
+	nav {
+		height: 50px;
+		margin: 0 15px;
+	}
+}

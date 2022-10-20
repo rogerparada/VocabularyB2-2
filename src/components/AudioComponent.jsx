@@ -23,8 +23,11 @@ function AudioComponent({ newAudio }) {
 	}, [newAudio]);
 
 	return (
-		<button onClick={() => playAudio(newAudio)} className="AudioButton">
-			<span>{text}</span>
+		<button
+			onClick={() => playAudio(newAudio)}
+			className="flex flex-col text-xs md:text-base mx-3 "
+		>
+			<span className=" capitalize">{text}</span>
 			<FontAwesomeIcon icon={faVolumeHigh} />
 		</button>
 	);

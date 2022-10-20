@@ -1,5 +1,28 @@
-function getWords() {
-	return ["inhabitants", "heir", "remain"];
+const words = [
+	"inhabitants",
+	"heir",
+	"remain",
+	"hope",
+	"hello",
+	"swollen",
+	"blister",
+	"ankle",
+	"normal",
+	"lungs",
+	"bleed",
+	"aid",
+	"suite",
+	"api",
+	"pills"
+];
+
+function getWords() {	
+	return words.sort();
+}
+
+function getLastWords(items) {	
+	console.log("🚀 ~ file: WordsService.js ~ line 25 ~ getLastWords ~ words.length-10", words.length, items)
+	return words.slice(words.length-items, words.length).sort();
 }
 
 async function getDefinition(newWord) {
@@ -88,4 +111,4 @@ function processMeaning(meaningsArray) {
 	return meanings;
 }
 
-export { getWords, getDefinition };
+export { getWords, getLastWords, getDefinition };

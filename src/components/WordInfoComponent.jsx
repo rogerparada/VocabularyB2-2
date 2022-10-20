@@ -36,8 +36,8 @@ const WordInfoComponent = () => {
 			<div>
 				<span className="title">{word}</span>
 			</div>
-			<div>
-				<span className="phonetic">{phonetic}</span>
+			<div className="flex flex-row mb-3">
+				<span className="phonetic my-auto ">{phonetic}</span>
 				<PhoneticsComponent ph={phonetics} />
 			</div>
 			<MeaningsComponent meanings={meanings} />

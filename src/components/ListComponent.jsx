@@ -2,17 +2,14 @@ import React from "react";
 import { getWords } from "../services/WordsService";
 import ListItemComponent from "./ListItemComponent";
 
-import WordComponent from "./WordComponent";
+export default function ListComponent() {
+	const words = getWords();
 
-function ListComponent() {
 	return (
-		<div className="list">
-			<WordComponent newWord={"Vocabulary"} />
-			{getWords().map((item, index) => (
-				<ListItemComponent word={item} key={index} />
-			))}
+		<div className="flex flex-wrap justify-center gap-5">
+			{words.map((word, index) => {
+				return <ListItemComponent word={word} key={index} />;
+			})}
 		</div>
 	);
 }
-
-export default ListComponent;

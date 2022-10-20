@@ -19,17 +19,25 @@
 
 .App-content {
 	background-color: white;
-	min-height: 100vh;
+	min-height: calc(100vh - 100px);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
 }
 
-.container {
-	width: 90%;
-	margin: auto;
-	text-align: left;
+footer {
+	min-height: 50px;
+}
+
+footer div {
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+}
+
+footer div span {
+	margin-left: 5px;
 }
 
 .App-link {
@@ -78,12 +86,18 @@
 	font-size: 1.1rem;
 	list-style-type: circle;
 	text-transform: capitalize;
+	list-style: none;
+	margin-left: 2rem;
 }
 
 a {
 	text-decoration: none;
 	color: black;
 	font-weight: 300;
+}
+
+.HighLink {
+	font-weight: bolder;
 }
 
 .list {
@@ -137,9 +151,6 @@ ul li span {
 }
 
 @media (max-width: 500px) {
-	.container {
-		width: 100%;
-	}
 	.title {
 		font-size: 3.5rem;
 		line-height: 7rem;
@@ -185,6 +196,7 @@ ul li span {
 		font-size: var(--font);
 		list-style-type: circle;
 		text-transform: capitalize;
+		list-style: none;
 	}
 	#word {
 		border-radius: 0;
@@ -192,13 +204,5 @@ ul li span {
 
 	.error {
 		border-radius: 0;
-	}
-
-	.App-content {
-		background-color: white;
-		min-height: 10vh;
-		display: block;
-		flex-direction: none;
-		justify-content: none;
 	}
 }
