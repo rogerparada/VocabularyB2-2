@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDefinition } from "../services/WordsService";
 import PhoneticsComponent from "./PhoneticsComponent";
 import MeaningsComponent from "./MeaningsComponent";
+import DropdownComponent from "./DropdownComponent";
 
 const WordComponent = ({ newWord }) => {
 	const [word, setWord] = useState("");
@@ -20,6 +21,7 @@ const WordComponent = ({ newWord }) => {
 
 	return (
 		<div id="word">
+			<DropdownComponent />
 			<div>
 				<span className="title">{word}</span>
 			</div>

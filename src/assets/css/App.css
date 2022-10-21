@@ -125,6 +125,10 @@ a {
 	font-size: 1.3rem;
 }
 
+#word {
+	position: relative;
+}
+
 .Speech span {
 	font-weight: 200;
 	font-style: italic;

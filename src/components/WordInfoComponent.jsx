@@ -4,6 +4,7 @@ import "../assets/css/WordComponent.css";
 import PhoneticsComponent from "./PhoneticsComponent";
 import MeaningsComponent from "./MeaningsComponent";
 import { Navigate, useParams } from "react-router-dom";
+import DropdownComponent from "./DropdownComponent";
 
 const WordInfoComponent = () => {
 	const newWord = useParams().word;
@@ -33,6 +34,7 @@ const WordInfoComponent = () => {
 
 	return (
 		<div id="word">
+			<DropdownComponent />
 			<div>
 				<span className="title">{word}</span>
 			</div>
