@@ -13,27 +13,27 @@ const words = [
 	"aid",
 	"suite",
 	"api",
-	"pills"
+	"pills",
 ];
 
-function getWords() {	
+function getWords() {
 	return words.sort();
 }
 
-function getLastWords(items) {	
-	console.log("🚀 ~ file: WordsService.js ~ line 25 ~ getLastWords ~ words.length-10", words.length, items)
-	return words.slice(words.length-items, words.length).sort();
+function getLastWords(items) {
+	return words.slice(words.length - items, words.length).sort();
 }
 
 async function getDefinition(newWord) {
 	try {
 		const API_URL = `https://api.dictionaryapi.dev/api/v2/entries/en/${newWord}`;
+
 		const res = await fetch(API_URL);
 		const response = await res.json();
+
 		if (Array.isArray(response)) {
 			if (response.length >= 1) {
 				let result = processDeFinitionArray(response);
-				console.log(result);
 				return result;
 			}
 		} else {
@@ -50,23 +50,27 @@ function processDeFinitionArray(defArray) {
 	let meanings = [];
 	let phonetics = [];
 
-	defArray.forEach((item) => {
-		word = item.word ? item.word : word;
-		phonetic = item.phonetic ? item.phonetic : phonetic;
-		if (Array.isArray(item.phonetics)) {
-			phonetics = processPhonetics(item.phonetics, phonetics);
-		}
-		if (Array.isArray(item.meanings)) {
-			meanings = meanings.concat(processMeaning(item.meanings));
-		}
-	});
+	try {
+		defArray.forEach((item) => {
+			word = item.word ? item.word : word;
+			phonetic = item.phonetic ? item.phonetic : phonetic;
+			if (Array.isArray(item.phonetics)) {
+				phonetics = processPhonetics(item.phonetics, phonetics);
+			}
+			if (Array.isArray(item.meanings)) {
+				meanings = meanings.concat(processMeaning(item.meanings));
+			}
+		});
 
-	return {
-		word,
-		phonetic,
-		meanings,
-		phonetics,
-	};
+		return {
+			word,
+			phonetic,
+			meanings,
+			phonetics,
+		};
+	} catch (error) {
+		console.log("Error", error);
+	}
 }
 
 function processPhonetics(pArray, oldValue) {
@@ -90,13 +94,17 @@ function processPhonetics(pArray, oldValue) {
 	});
 
 	if (phonetics.text === oldValue.text) {
-		let res = phonetics.audios.concat(oldValue.audios);
-		phonetics.audios = res.reduce((acc, item) => {
-			if (!acc.some((e) => e.audio === item.audio)) {
-				acc.push(item);
-			}
-			return acc;
-		}, []);
+		try {
+			let res = phonetics.audios.concat(oldValue.audios);
+			phonetics.audios = res.reduce((acc, item) => {
+				if (!acc.some((e) => e.audio === item.audio)) {
+					acc.push(item);
+				}
+				return acc;
+			}, []);
+		} catch (error) {
+			console.log("Error reading audios");
+		}
 	}
 
 	return phonetics;
