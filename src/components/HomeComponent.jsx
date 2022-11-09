@@ -13,7 +13,7 @@ function ListComponent() {
 			<p className="mt-10 mx-3 font-bold">Last {items} words: </p>
 			<div className="flex flex-wrap gap-3 mx-3 mb-10 md:mb-3">
 				{words.map((item, index) => (
-					<ListItemComponent word={item} key={index} />
+					<ListItemComponent word={item.word} key={index} />
 				))}
 			</div>
 		</div>
